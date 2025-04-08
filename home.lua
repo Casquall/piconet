@@ -1,3 +1,4 @@
+--[[pod_format="raw",created="2024-03-31 05:12:36",modified="2024-03-31 05:46:59",revision=8]]
 --[[	Thanks for using PicoNet Sitebuilder! I look forward
 	to seeing your picosite! In order to make this available
 	on PicoNet Explorer, you'll need to upload this lua file
@@ -12,74 +13,35 @@
 ]]
 
 	p = {
-	title="untitled page ",
+	title="Meivuu ",
 	g=create_gui({
 		x=0,y=0,
 		width=300,height=300,
 		fgcol = 0x090d
 	}),
-	copybuttons = {},	init = function(self,explorer)
+	copybuttons = {},
+	init = function(self,explorer)
 		local page = self
+		self.button5 = self.g:attach_button({
+			x=16.0, y=235.5, width=100, height=13,
+			label="CityView Wallpaper ",
+			click=function()
+				explorer:open_page("https://raw.githubusercontent.com/May0san/piconetdemo/main/cityview.lua")
+			end
+		})
+		self.button6 = self.g:attach_button({
+			x=16.0, y=254.5, width=124, height=13,
+			label="Snowy Lamp Screensaver ",
+			click=function()
+				explorer:open_page("https://raw.githubusercontent.com/May0san/piconetdemo/main/screensnower.lua")
+			end
+		})
 		add(self.copybuttons, self.g:attach({
-			x=183.0, y=33.0, width=24, height=24,
+			x=183, y=66, width=64, height=64,
 			event = function(self,msg)
 				if(msg.event == "release") then
-					set_clipboard("--[[pod,pod_type=\"image\"]]unpod(\""..page.untitled2_raw.."\")")
+					set_clipboard("--[[pod,pod_type=\"image\"]]unpod(\""..page.image8_raw.."\")")
 					notify("image userdata added to clipboard")
-				end
-			end
-		}))
-		add(self.copybuttons,self.g:attach({
-			x=93.0, y=61.0, width=16, height=16,
-			event = function(self,msg)
-				if(msg.event == "release") then
-					set_clipboard(pod({type="gif", w=16, h=16, frames=12, speed=1, clr=0, imgdata=page.untitled3_gif_raw}))
-					notify("gif added to clipboard")
-				end
-			end
-		}))
-		add(self.copybuttons, self.g:attach({
-			x=222.0, y=59.0, width=24, height=24,
-			event = function(self,msg)
-				if(msg.event == "release") then
-					set_clipboard("--[[pod,pod_type=\"image\"]]unpod(\""..page.untitled2_raw.."\")")
-					notify("image userdata added to clipboard")
-				end
-			end
-		}))
-		add(self.copybuttons, self.g:attach({
-			x=149.0, y=41.0, width=24, height=24,
-			event = function(self,msg)
-				if(msg.event == "release") then
-					set_clipboard("--[[pod,pod_type=\"image\"]]unpod(\""..page.untitled2_raw.."\")")
-					notify("image userdata added to clipboard")
-				end
-			end
-		}))
-		add(self.copybuttons, self.g:attach({
-			x=186.0, y=80.0, width=24, height=24,
-			event = function(self,msg)
-				if(msg.event == "release") then
-					set_clipboard("--[[pod,pod_type=\"image\"]]unpod(\""..page.untitled2_raw.."\")")
-					notify("image userdata added to clipboard")
-				end
-			end
-		}))
-		add(self.copybuttons,self.g:attach({
-			x=99.0, y=105.0, width=16, height=16,
-			event = function(self,msg)
-				if(msg.event == "release") then
-					set_clipboard(pod({type="gif", w=16, h=16, frames=12, speed=1, clr=0, imgdata=page.untitled3_gif_raw}))
-					notify("gif added to clipboard")
-				end
-			end
-		}))
-		add(self.copybuttons,self.g:attach({
-			x=42.0, y=86.0, width=16, height=16,
-			event = function(self,msg)
-				if(msg.event == "release") then
-					set_clipboard(pod({type="gif", w=16, h=16, frames=12, speed=1, clr=0, imgdata=page.untitled3_gif_raw}))
-					notify("gif added to clipboard")
 				end
 			end
 		}))
@@ -89,32 +51,19 @@
 	end,
 	draw = function(self,explorer)
 		cls(0)
+		rectfill(0,0,300,40,1)
+		print("Meivuu's Picosite! ",7.0,15.0,7)
+		print("Welcome to my picosite!\nIt's pretty plain and\nempty right now, but\nI'll add more to it\nsoon, hopefully!!\n\nThis was made using the\nsitebuilder tool I made,\nyou can use it too at\nthe top of the browse\npage!\n\nYou can visit some of\nthe other pages on my\nsite with some content:\n ",13,62,7)
+		rectfill(178,61,252,135,1)
 		palt(0)
 		palt(0, true)
-		sspr(self.untitled2, 0, 0, 24,24,183.0,33.0,24,24)
+		sspr(self.image8, 0, 0, 32,32,183,66,64,64)
 		palt()
-		self.untitled3:draw(93.0,61.0,16,16,1,0)
-		palt(0)
-		palt(0, true)
-		sspr(self.untitled2, 0, 0, 24,24,222.0,59.0,24,24)
-		palt()
-		palt(0)
-		palt(0, true)
-		sspr(self.untitled2, 0, 0, 24,24,149.0,41.0,24,24)
-		palt()
-		palt(0)
-		palt(0, true)
-		sspr(self.untitled2, 0, 0, 24,24,186.0,80.0,24,24)
-		palt()
-		self.untitled3:draw(99.0,105.0,16,16,1,0)
-		self.untitled3:draw(42.0,86.0,16,16,1,0)
 		
 	end,
 	update = function(self,explorer)
 		
 	end,
-	untitled3_gif_raw = "b64:bHo0ALcBAAAQAwAA-AJweHUAQyDAEATwtD8WsE7ALgIA-wCgTpAOLw8ekA4tLqAOHR4EAA3-BYAOLS5wLi0OkB4tHpAeLQ4NgC4dBQAOACgA-wVwHi0ecH6AfoBugA4fIA4cDoAOHAYAD7ducH5gBR4cDhyAHhYADwYAHBFwPACAcAUOHA0MDYAHAAUgAD8uDC4EAAYVDjYAAAcAgS4MDqAuDB6QHgAfCQQACAE_AP8EHpAFLgmgBR4JDrAeCQ4FoB4JCgUADzEOBZAyAP8EFQ0ACQqQFQ0JCrAFDQrABQ0ZsAQAByAKsCkA8gTgDxkZCqALDQkNoA0ZsA0OGgmgBQBGCgkPFAwAFAgLAHAOGgmwDRnQMQDxBtANCQ0JGoAdGRpgDQ4JKpANChgJoAUAWwoJKAmQCgACBQDyEw4JKsAdGRqgDg0JCgQJgA4ZCgQJYA0OCggECZANCQgECaAGAG4KGAQLCZAMAAMGAAExABHAPgCCoA4LCgQLCoAHALBgDQAJBAsKkA0psAMAWQkICwmgCQAiKbAiABLAMAD1BqANACmQDQApcA0AKaAN4A3gDQAZsAYAwOANACnQDQApsA3wpQ==",
-	untitled2_raw = "b64:bHo0AHUAAACIAAAA8B1weHUAQyAYGAT3VZ8gDccOhx23Dgd2DQcNpw4HJhMmDRcNlw4HFgMLAwEWPgoAsSMBNgcOlw4HJhFGCABBVi8QAQkAcwYINgwPDAwNAGIPDggmHBEMAEIaCBYxCgAiKgg1ACIGMQgAsJYHDpcOtw6X3vdV",
-	untitled2 = unpod("b64:bHo0AHUAAACIAAAA8B1weHUAQyAYGAT3VZ8gDccOhx23Dgd2DQcNpw4HJhMmDRcNlw4HFgMLAwEWPgoAsSMBNgcOlw4HJhFGCABBVi8QAQkAcwYINgwPDAwNAGIPDggmHBEMAEIaCBYxCgAiKgg1ACIGMQgAsJYHDpcOtw6X3vdV"),
-	untitled3 = new_gif("b64:bHo0ALcBAAAQAwAA-AJweHUAQyDAEATwtD8WsE7ALgIA-wCgTpAOLw8ekA4tLqAOHR4EAA3-BYAOLS5wLi0OkB4tHpAeLQ4NgC4dBQAOACgA-wVwHi0ecH6AfoBugA4fIA4cDoAOHAYAD7ducH5gBR4cDhyAHhYADwYAHBFwPACAcAUOHA0MDYAHAAUgAD8uDC4EAAYVDjYAAAcAgS4MDqAuDB6QHgAfCQQACAE_AP8EHpAFLgmgBR4JDrAeCQ4FoB4JCgUADzEOBZAyAP8EFQ0ACQqQFQ0JCrAFDQrABQ0ZsAQAByAKsCkA8gTgDxkZCqALDQkNoA0ZsA0OGgmgBQBGCgkPFAwAFAgLAHAOGgmwDRnQMQDxBtANCQ0JGoAdGRpgDQ4JKpANChgJoAUAWwoJKAmQCgACBQDyEw4JKsAdGRqgDg0JCgQJgA4ZCgQJYA0OCggECZANCQgECaAGAG4KGAQLCZAMAAMGAAExABHAPgCCoA4LCgQLCoAHALBgDQAJBAsKkA0psAMAWQkICwmgCQAiKbAiABLAMAD1BqANACmQDQApcA0AKaAN4A3gDQAZsAYAwOANACnQDQApsA3wpQ==",12)
+	image8_raw = "b64:bHo0APYBAAASAgAA8gJweHUAQyAgIAQEEgEHFgEEEgMAMxcGAgwA8C0kJxZkBgcENwYCZAIkBx4XBkQXFDcGtAYOCA4mJAYHBgQGJxYCZAIEAgQBBw4IDgYNBAECFwEEBhcWAgEVAPA8AgQCASQCBgcOCBYNFg0HRg0GRAKEBgceB0Y3Fg3EAhQGBw4HBhcGBwYHBicGRAJEAi0mJwZXBicGAQQCPQIBBA0MBw0WNwYHBocGDADxBy0CHQcNFicGJwYXBicGJx0HjRYXBncPAPAcTQwtDBZXDw8Gtw0MDSYdBgwWRwYbBgcbBmcGDBYHBg0EDRZXezcGJzYNJBoAYDcrJwYnPZsAwQZHKwcNASsGFwsGF-cA4BQWRwY7AQArAQcrF0QCDgDyEcsHBgd0BgcGNztXCCsHBAdEAgQCBwZHOwg_GBsNBgQH6AAQBEwAsQY7SBsNBiQLAgs01QDwIBYdew0GByQLBAskBzYnBj04LQYNBiQrNAIWNxYNCC4IHggdFgEEAjsCARQWJxYNEQDxFC4IDQYCBAgOKwQCFAY3Bg0OCC4IDggOCB4IBhROCCQGNwYeEgDgHggeBwIEDgg_AgQWJxYmAAIWALEBCB4YDggBBCYXBjgAEQ5nADAeAl6xAVMHFj4IHgIA8AVOCCQWBwYHCC4IAh4IDgguCG4IJA==",
+	image8 = unpod("b64:bHo0APYBAAASAgAA8gJweHUAQyAgIAQEEgEHFgEEEgMAMxcGAgwA8C0kJxZkBgcENwYCZAIkBx4XBkQXFDcGtAYOCA4mJAYHBgQGJxYCZAIEAgQBBw4IDgYNBAECFwEEBhcWAgEVAPA8AgQCASQCBgcOCBYNFg0HRg0GRAKEBgceB0Y3Fg3EAhQGBw4HBhcGBwYHBicGRAJEAi0mJwZXBicGAQQCPQIBBA0MBw0WNwYHBocGDADxBy0CHQcNFicGJwYXBicGJx0HjRYXBncPAPAcTQwtDBZXDw8Gtw0MDSYdBgwWRwYbBgcbBmcGDBYHBg0EDRZXezcGJzYNJBoAYDcrJwYnPZsAwQZHKwcNASsGFwsGF-cA4BQWRwY7AQArAQcrF0QCDgDyEcsHBgd0BgcGNztXCCsHBAdEAgQCBwZHOwg_GBsNBgQH6AAQBEwAsQY7SBsNBiQLAgs01QDwIBYdew0GByQLBAskBzYnBj04LQYNBiQrNAIWNxYNCC4IHggdFgEEAjsCARQWJxYNEQDxFC4IDQYCBAgOKwQCFAY3Bg0OCC4IDggOCB4IBhROCCQGNwYeEgDgHggeBwIEDgg_AgQWJxYmAAIWALEBCB4YDggBBCYXBjgAEQ5nADAeAl6xAVMHFj4IHgIA8AVOCCQWBwYHCC4IAh4IDgguCG4IJA==")
 }
