@@ -1,50 +1,120 @@
-p = {
-	title = "home",
-	get_gui = function(self,explorer)
-		local g = create_gui({
-			x=0,y=0,
-			width=300,height=200-28,
-			fgcol = 0x090d,
-			draw = function(self)
-				cls(7)
-				local center_x = self.parent.width/2--default 150
-				local center_y = (self.parent.height/2) + 35--default 118
-				circfill(center_x,center_y-46,40,1)
-				ovalfill(center_x-38,center_y-84,center_x+38,center_y-18,16)
-				ovalfill(center_x-24,center_y-82,center_x+24,center_y-56,12)
-				ovalfill(center_x-10,center_y-78,center_x+10,center_y-71,28)
-				spr(self.icon,center_x-31,center_y-50)
-				print("Explore\n	The",center_x-49,center_y-71,13)
-				print("Explore\n	The",center_x-50,center_y-71,0)
-			end,
-			update = function(self)
-				self.browse.x = (self.parent.width/2)-25
-				self.browse.y=(self.parent.height/2) + 35
-			end,
-			icon = --[[pod_type="gfx"]]unpod("b64:bHo0AI8AAABoAQAA8x1weHUAQyBAEATwMX8gDQBuDQBeDRBuDQAuDRAuDW4Nbg0Ajg1uDX4Njg1ODREAARsAAwMAIR4NCACCjg0uDVAuDSAVAAEDABFABgA-Lg1OGwAHEBAeAB8wHAAiAlQAP44NEBkAAz9_DSAZAAM-Lg1wGQAkBOsACRsAElAbAQMtARQQFAAKRAFQEC4N8DI=")
-		})
-		g.browse = g:attach_button({x=(explorer.current_width/2)-25,y=(explorer.current_height/2) + 28,width=50,label="browse",
-			click = function()
-				explorer:open_page("https://raw.githubusercontent.com/May0san/piconetdemo/main/browse.lua")
+--[[	Thanks for using PicoNet Sitebuilder! I look forward
+	to seeing your picosite! In order to make this available
+	on PicoNet Explorer, you'll need to upload this lua file
+	somewhere on the internet that you can get a link to it.
+	Then, you'll want to go to the following thread:
+	
+		https://www.lexaloffle.com/bbs/?tid=140960
+	
+	and post your link based on the format provided there.
+	it's  very possible that this format could change slightly
+	and so I will not be listing that here just yet.
+]]
+
+	p = {
+	title="untitled page ",
+	g=create_gui({
+		x=0,y=0,
+		width=300,height=300,
+		fgcol = 0x090d
+	}),
+	copybuttons = {},	init = function(self,explorer)
+		local page = self
+		add(self.copybuttons, self.g:attach({
+			x=183.0, y=33.0, width=24, height=24,
+			event = function(self,msg)
+				if(msg.event == "release") then
+					set_clipboard("--[[pod,pod_type=\"image\"]]unpod(\""..page.untitled2_raw.."\")")
+					notify("image userdata added to clipboard")
+				end
 			end
-		})
-		return g
+		}))
+		add(self.copybuttons,self.g:attach({
+			x=93.0, y=61.0, width=16, height=16,
+			event = function(self,msg)
+				if(msg.event == "release") then
+					set_clipboard(pod({type="gif", w=16, h=16, frames=12, speed=1, clr=0, imgdata=page.untitled3_gif_raw}))
+					notify("gif added to clipboard")
+				end
+			end
+		}))
+		add(self.copybuttons, self.g:attach({
+			x=222.0, y=59.0, width=24, height=24,
+			event = function(self,msg)
+				if(msg.event == "release") then
+					set_clipboard("--[[pod,pod_type=\"image\"]]unpod(\""..page.untitled2_raw.."\")")
+					notify("image userdata added to clipboard")
+				end
+			end
+		}))
+		add(self.copybuttons, self.g:attach({
+			x=149.0, y=41.0, width=24, height=24,
+			event = function(self,msg)
+				if(msg.event == "release") then
+					set_clipboard("--[[pod,pod_type=\"image\"]]unpod(\""..page.untitled2_raw.."\")")
+					notify("image userdata added to clipboard")
+				end
+			end
+		}))
+		add(self.copybuttons, self.g:attach({
+			x=186.0, y=80.0, width=24, height=24,
+			event = function(self,msg)
+				if(msg.event == "release") then
+					set_clipboard("--[[pod,pod_type=\"image\"]]unpod(\""..page.untitled2_raw.."\")")
+					notify("image userdata added to clipboard")
+				end
+			end
+		}))
+		add(self.copybuttons,self.g:attach({
+			x=99.0, y=105.0, width=16, height=16,
+			event = function(self,msg)
+				if(msg.event == "release") then
+					set_clipboard(pod({type="gif", w=16, h=16, frames=12, speed=1, clr=0, imgdata=page.untitled3_gif_raw}))
+					notify("gif added to clipboard")
+				end
+			end
+		}))
+		add(self.copybuttons,self.g:attach({
+			x=42.0, y=86.0, width=16, height=16,
+			event = function(self,msg)
+				if(msg.event == "release") then
+					set_clipboard(pod({type="gif", w=16, h=16, frames=12, speed=1, clr=0, imgdata=page.untitled3_gif_raw}))
+					notify("gif added to clipboard")
+				end
+			end
+		}))
 	end,
-	draw = function(self, explorer)
---		cls(7)
---		local center_x = explorer.current_width/2--default 150
---		local center_y = (explorer.current_height/2) + 18--default 118
---		circfill(center_x,center_y-46,40,1)
---		ovalfill(center_x-38,center_y-84,center_x+38,center_y-18,16)
---		ovalfill(center_x-24,center_y-82,center_x+24,center_y-56,12)
---		ovalfill(center_x-10,center_y-78,center_x+10,center_y-71,28)
---		spr(self.icon,center_x-31,center_y-50)
---		print("Explore\n	The",center_x-49,center_y-71,13)
---		print("Explore\n	The",center_x-50,center_y-71,0)
+	get_gui = function(self,explorer)
+		return self.g
 	end,
-	update = function(self, explorer)
---		self.browse.x = (explorer.current_width/2)-25
---		self.browse.y=(explorer.current_height/2) + 28
+	draw = function(self,explorer)
+		cls(0)
+		palt(0)
+		palt(0, true)
+		sspr(self.untitled2, 0, 0, 24,24,183.0,33.0,24,24)
+		palt()
+		self.untitled3:draw(93.0,61.0,16,16,1,0)
+		palt(0)
+		palt(0, true)
+		sspr(self.untitled2, 0, 0, 24,24,222.0,59.0,24,24)
+		palt()
+		palt(0)
+		palt(0, true)
+		sspr(self.untitled2, 0, 0, 24,24,149.0,41.0,24,24)
+		palt()
+		palt(0)
+		palt(0, true)
+		sspr(self.untitled2, 0, 0, 24,24,186.0,80.0,24,24)
+		palt()
+		self.untitled3:draw(99.0,105.0,16,16,1,0)
+		self.untitled3:draw(42.0,86.0,16,16,1,0)
+		
 	end,
-	icon = --[[pod_type="gfx"]]unpod("b64:bHo0AI8AAABoAQAA8x1weHUAQyBAEATwMX8gDQBuDQBeDRBuDQAuDRAuDW4Nbg0Ajg1uDX4Njg1ODREAARsAAwMAIR4NCACCjg0uDVAuDSAVAAEDABFABgA-Lg1OGwAHEBAeAB8wHAAiAlQAP44NEBkAAz9_DSAZAAM-Lg1wGQAkBOsACRsAElAbAQMtARQQFAAKRAFQEC4N8DI=")
+	update = function(self,explorer)
+		
+	end,
+	untitled3_gif_raw = "b64:bHo0ALcBAAAQAwAA-AJweHUAQyDAEATwtD8WsE7ALgIA-wCgTpAOLw8ekA4tLqAOHR4EAA3-BYAOLS5wLi0OkB4tHpAeLQ4NgC4dBQAOACgA-wVwHi0ecH6AfoBugA4fIA4cDoAOHAYAD7ducH5gBR4cDhyAHhYADwYAHBFwPACAcAUOHA0MDYAHAAUgAD8uDC4EAAYVDjYAAAcAgS4MDqAuDB6QHgAfCQQACAE_AP8EHpAFLgmgBR4JDrAeCQ4FoB4JCgUADzEOBZAyAP8EFQ0ACQqQFQ0JCrAFDQrABQ0ZsAQAByAKsCkA8gTgDxkZCqALDQkNoA0ZsA0OGgmgBQBGCgkPFAwAFAgLAHAOGgmwDRnQMQDxBtANCQ0JGoAdGRpgDQ4JKpANChgJoAUAWwoJKAmQCgACBQDyEw4JKsAdGRqgDg0JCgQJgA4ZCgQJYA0OCggECZANCQgECaAGAG4KGAQLCZAMAAMGAAExABHAPgCCoA4LCgQLCoAHALBgDQAJBAsKkA0psAMAWQkICwmgCQAiKbAiABLAMAD1BqANACmQDQApcA0AKaAN4A3gDQAZsAYAwOANACnQDQApsA3wpQ==",
+	untitled2_raw = "b64:bHo0AHUAAACIAAAA8B1weHUAQyAYGAT3VZ8gDccOhx23Dgd2DQcNpw4HJhMmDRcNlw4HFgMLAwEWPgoAsSMBNgcOlw4HJhFGCABBVi8QAQkAcwYINgwPDAwNAGIPDggmHBEMAEIaCBYxCgAiKgg1ACIGMQgAsJYHDpcOtw6X3vdV",
+	untitled2 = unpod("b64:bHo0AHUAAACIAAAA8B1weHUAQyAYGAT3VZ8gDccOhx23Dgd2DQcNpw4HJhMmDRcNlw4HFgMLAwEWPgoAsSMBNgcOlw4HJhFGCABBVi8QAQkAcwYINgwPDAwNAGIPDggmHBEMAEIaCBYxCgAiKgg1ACIGMQgAsJYHDpcOtw6X3vdV"),
+	untitled3 = new_gif("b64:bHo0ALcBAAAQAwAA-AJweHUAQyDAEATwtD8WsE7ALgIA-wCgTpAOLw8ekA4tLqAOHR4EAA3-BYAOLS5wLi0OkB4tHpAeLQ4NgC4dBQAOACgA-wVwHi0ecH6AfoBugA4fIA4cDoAOHAYAD7ducH5gBR4cDhyAHhYADwYAHBFwPACAcAUOHA0MDYAHAAUgAD8uDC4EAAYVDjYAAAcAgS4MDqAuDB6QHgAfCQQACAE_AP8EHpAFLgmgBR4JDrAeCQ4FoB4JCgUADzEOBZAyAP8EFQ0ACQqQFQ0JCrAFDQrABQ0ZsAQAByAKsCkA8gTgDxkZCqALDQkNoA0ZsA0OGgmgBQBGCgkPFAwAFAgLAHAOGgmwDRnQMQDxBtANCQ0JGoAdGRpgDQ4JKpANChgJoAUAWwoJKAmQCgACBQDyEw4JKsAdGRqgDg0JCgQJgA4ZCgQJYA0OCggECZANCQgECaAGAG4KGAQLCZAMAAMGAAExABHAPgCCoA4LCgQLCoAHALBgDQAJBAsKkA0psAMAWQkICwmgCQAiKbAiABLAMAD1BqANACmQDQApcA0AKaAN4A3gDQAZsAYAwOANACnQDQApsA3wpQ==",12)
 }
