@@ -13,7 +13,7 @@
 ]]
 
 	p = {
-	title="Meivuu ",
+	title="Ducky",
 	g=create_gui({
 		x=0,y=0,
 		width=300,height=300,
@@ -52,8 +52,8 @@
 	draw = function(self,explorer)
 		cls(0)
 		rectfill(0,0,300,40,1)
-		print("Meivuu's Picosite! ",7.0,15.0,7)
-		print("Welcome to my picosite!\nIt's pretty plain and\nempty right now, but\nI'll add more to it\nsoon, hopefully!!\n\nThis was made using the\nsitebuilder tool I made,\nyou can use it too at\nthe top of the browse\npage!\n\nYou can visit some of\nthe other pages on my\nsite with some content:\n ",13,62,7)
+		print("Testing! ",7.0,15.0,7)
+		print("Testing",13,62,7)
 		rectfill(178,61,252,135,1)
 		palt(0)
 		palt(0, true)
